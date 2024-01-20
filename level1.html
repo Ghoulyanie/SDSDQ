@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <title>LEVEL1</title>
+</head>
+<body class="all" onclick="click()">
+    <header>
+        <div class="cont-progress">
+            <div class="progress"></div>
+        </div>
+        <div class="cont-info">
+            <h2 class="level" onclick="colors()">LEVEL 1</h2>
+            <h2 class="number-of-points">0/10</h2>
+        </div>
+        <!-- <div class="cont-colors">
+            <div class="green"></div>
+            <div class="blue"></div>
+            <div class="red"></div>
+        </div> -->
+    </header> 
+    <main>
+        <p class="points">0<p>
+    </main>
+    <script>
+        const button = document.querySelector(".all").onclick = click;
+const points = document.querySelector(".points")
+const numberPoints = document.querySelector(".number-of-points")
+const progressBar = document.querySelector('.progress');
+const progressBarCont = document.querySelector('.cont-progress');
+const level = document.querySelector('.level');
+
+const green = document.querySelector('.green');
+
+let count = 0;
+
+
+function click() {
+    let sound = new Audio();
+    sound.src = 'soft-notice-146623.mp3';
+    sound.play();   
+    if(count <= 10){
+
+      document.querySelector(".points").innerHTML = count;
+      document.querySelector(".number-of-points").innerHTML = `${count}/10`;
+      progressBar.style.width = `${count * 10}%`
+      if(count == 10){    
+          document.querySelector(".points").innerHTML = "Done!";
+          window.open('level2.html', target="_self");
+      }
+      count += 1;       
+    }
+  }
+
+click();
+
+    </script>
+</body>
+
+</html>
